@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD10DCF2832D16600907A71 /* SuperBallScene.swift */; };
+		5BD10DD22832D20A00907A71 /* SuperBallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD10DD12832D20A00907A71 /* SuperBallModel.swift */; };
+		5BD10DD42832D42C00907A71 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD10DD32832D42C00907A71 /* SceneManager.swift */; };
 		EE866F582832CEA90003CA9C /* BalanceBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE866F572832CEA90003CA9C /* BalanceBoardApp.swift */; };
 		EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE866F592832CEA90003CA9C /* ContentView.swift */; };
 		EE866F5C2832CEAA0003CA9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE866F5B2832CEAA0003CA9C /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BD10DCF2832D16600907A71 /* SuperBallScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperBallScene.swift; sourceTree = "<group>"; };
+		5BD10DD12832D20A00907A71 /* SuperBallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperBallModel.swift; sourceTree = "<group>"; };
+		5BD10DD32832D42C00907A71 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		EE866F542832CEA90003CA9C /* BalanceBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BalanceBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE866F572832CEA90003CA9C /* BalanceBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceBoardApp.swift; sourceTree = "<group>"; };
 		EE866F592832CEA90003CA9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,10 +57,13 @@
 		EE866F562832CEA90003CA9C /* BalanceBoard */ = {
 			isa = PBXGroup;
 			children = (
+				5BD10DD32832D42C00907A71 /* SceneManager.swift */,
 				EE866F572832CEA90003CA9C /* BalanceBoardApp.swift */,
 				EE866F592832CEA90003CA9C /* ContentView.swift */,
 				EE866F5B2832CEAA0003CA9C /* Assets.xcassets */,
 				EE866F5D2832CEAA0003CA9C /* Preview Content */,
+				5BD10DCF2832D16600907A71 /* SuperBallScene.swift */,
+				5BD10DD12832D20A00907A71 /* SuperBallModel.swift */,
 			);
 			path = BalanceBoard;
 			sourceTree = "<group>";
@@ -138,6 +147,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */,
+				5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */,
+				5BD10DD42832D42C00907A71 /* SceneManager.swift in Sources */,
+				5BD10DD22832D20A00907A71 /* SuperBallModel.swift in Sources */,
 				EE866F582832CEA90003CA9C /* BalanceBoardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +207,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -267,7 +279,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BalanceBoard/Preview Content\"";
-				DEVELOPMENT_TEAM = LP3UHZ556W;
+				DEVELOPMENT_TEAM = P9DY7C7A5F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -280,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.phcs.BalanceBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pehp.BalanceBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -296,7 +308,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BalanceBoard/Preview Content\"";
-				DEVELOPMENT_TEAM = LP3UHZ556W;
+				DEVELOPMENT_TEAM = P9DY7C7A5F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -309,7 +321,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.phcs.BalanceBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pehp.BalanceBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
