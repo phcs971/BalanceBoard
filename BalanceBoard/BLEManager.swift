@@ -29,6 +29,7 @@ class BLEManager: NSObject, ObservableObject {
     
     
     func startScanning() {
+        print("Start scanning")
         centralManager.scanForPeripherals(withServices: [serviceUUID])
     }
 }
@@ -54,6 +55,7 @@ extension BLEManager: CBCentralManagerDelegate {
         }
     }
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print("Discovered peripheral")
         boardPeripheral = peripheral
         boardPeripheral?.delegate = self
         centralManager.stopScan()

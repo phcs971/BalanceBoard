@@ -12,6 +12,8 @@
 		5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD10DCF2832D16600907A71 /* SuperBallScene.swift */; };
 		5BD10DD22832D20A00907A71 /* SuperBallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD10DD12832D20A00907A71 /* SuperBallModel.swift */; };
 		5BD10DD42832D42C00907A71 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD10DD32832D42C00907A71 /* SceneManager.swift */; };
+		5BE0C0F428330465006236ED /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5BE0C0F328330465006236ED /* MyScene.sks */; };
+		5BE0C0F628330DE2006236ED /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0C0F528330DE2006236ED /* ModalView.swift */; };
 		EE866F582832CEA90003CA9C /* BalanceBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE866F572832CEA90003CA9C /* BalanceBoardApp.swift */; };
 		EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE866F592832CEA90003CA9C /* ContentView.swift */; };
 		EE866F5C2832CEAA0003CA9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE866F5B2832CEAA0003CA9C /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		5BD10DCF2832D16600907A71 /* SuperBallScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperBallScene.swift; sourceTree = "<group>"; };
 		5BD10DD12832D20A00907A71 /* SuperBallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperBallModel.swift; sourceTree = "<group>"; };
 		5BD10DD32832D42C00907A71 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
+		5BE0C0F328330465006236ED /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
+		5BE0C0F528330DE2006236ED /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		EE866F542832CEA90003CA9C /* BalanceBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BalanceBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE866F572832CEA90003CA9C /* BalanceBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceBoardApp.swift; sourceTree = "<group>"; };
 		EE866F592832CEA90003CA9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +49,7 @@
 		EE866F4B2832CEA90003CA9C = {
 			isa = PBXGroup;
 			children = (
+				5BE0C0F328330465006236ED /* MyScene.sks */,
 				EE866F562832CEA90003CA9C /* BalanceBoard */,
 				EE866F552832CEA90003CA9C /* Products */,
 			);
@@ -61,6 +66,7 @@
 		EE866F562832CEA90003CA9C /* BalanceBoard */ = {
 			isa = PBXGroup;
 			children = (
+				5BE0C0F528330DE2006236ED /* ModalView.swift */,
 				5BD10DD32832D42C00907A71 /* SceneManager.swift */,
 				EE866F572832CEA90003CA9C /* BalanceBoardApp.swift */,
 				EE866F592832CEA90003CA9C /* ContentView.swift */,
@@ -141,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE866F5F2832CEAA0003CA9C /* Preview Assets.xcassets in Resources */,
+				5BE0C0F428330465006236ED /* MyScene.sks in Resources */,
 				EE866F5C2832CEAA0003CA9C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +161,7 @@
 			files = (
 				EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */,
 				5B7FAA4C2832FC9F00D455EB /* SensorModel.swift in Sources */,
+				5BE0C0F628330DE2006236ED /* ModalView.swift in Sources */,
 				5B7FAA4B2832FC9F00D455EB /* BLEManager.swift in Sources */,
 				5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */,
 				5BD10DD42832D42C00907A71 /* SceneManager.swift in Sources */,
@@ -296,6 +304,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,6 +335,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
