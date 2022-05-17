@@ -16,8 +16,6 @@
 		EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE866F592832CEA90003CA9C /* ContentView.swift */; };
 		EE866F5C2832CEAA0003CA9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE866F5B2832CEAA0003CA9C /* Assets.xcassets */; };
 		EE866F5F2832CEAA0003CA9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE866F5E2832CEAA0003CA9C /* Preview Assets.xcassets */; };
-		EE866F682832E6070003CA9C /* SensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE866F672832E6070003CA9C /* SensorModel.swift */; };
-		EE866F6A2832E6150003CA9C /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE866F692832E6150003CA9C /* BLEManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +29,6 @@
 		EE866F592832CEA90003CA9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE866F5B2832CEAA0003CA9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE866F5E2832CEAA0003CA9C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EE866F672832E6070003CA9C /* SensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorModel.swift; sourceTree = "<group>"; };
-		EE866F692832E6150003CA9C /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +63,6 @@
 			children = (
 				5BD10DD32832D42C00907A71 /* SceneManager.swift */,
 				EE866F572832CEA90003CA9C /* BalanceBoardApp.swift */,
-				EE866F692832E6150003CA9C /* BLEManager.swift */,
-				EE866F672832E6070003CA9C /* SensorModel.swift */,
 				EE866F592832CEA90003CA9C /* ContentView.swift */,
 				EE866F5B2832CEAA0003CA9C /* Assets.xcassets */,
 				EE866F5D2832CEAA0003CA9C /* Preview Content */,
@@ -158,8 +152,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE866F682832E6070003CA9C /* SensorModel.swift in Sources */,
-				EE866F6A2832E6150003CA9C /* BLEManager.swift in Sources */,
 				EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */,
 				5B7FAA4C2832FC9F00D455EB /* SensorModel.swift in Sources */,
 				5B7FAA4B2832FC9F00D455EB /* BLEManager.swift in Sources */,

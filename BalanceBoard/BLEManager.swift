@@ -55,15 +55,15 @@ extension BLEManager: CBCentralManagerDelegate {
     }
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         boardPeripheral = peripheral
-        
+        boardPeripheral?.delegate = self
         centralManager.stopScan()
         centralManager.connect(peripheral)
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("CONNECTED")
-        peripheral.delegate = self
         peripheral.discoverServices([serviceUUID])
+        
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
