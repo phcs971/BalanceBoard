@@ -13,13 +13,16 @@ class BLEManager: NSObject, ObservableObject {
     var serviceUUID: CBUUID = .init(string: "DA1A")
     var characteristicUUID: CBUUID = .init(string: "A001")
     
+    var delegates = [String: BLEManagerDelegate]()
+    
     var centralManager: CBCentralManager!
     
     var boardPeripheral: CBPeripheral?
     
     var sensorCharacteristic: CBCharacteristic?
     
-    var notifying = false
+    @Published var notifying = false
+    @Published var connected = false
     
     static let instance = BLEManager()
     
@@ -30,7 +33,18 @@ class BLEManager: NSObject, ObservableObject {
     
     func startScanning() {
         print("Start scanning")
-        centralManager.scanForPeripherals(withServices: [serviceUUID])
+        let peripherals = centralManager.retrieveConnectedPeripherals(withServices: [serviceUUID])
+        if peripherals.isEmpty {
+            centralManager.scanForPeripherals(withServices: [serviceUUID])
+        } else {
+            boardPeripheral = peripherals.first!
+            if boardPeripheral!.state == .connected {
+                boardPeripheral!.delegate = self
+                boardPeripheral!.discoverServices([serviceUUID])
+            } else {
+                centralManager.connect(boardPeripheral!)
+            }
+        }
     }
 }
 
@@ -54,26 +68,29 @@ extension BLEManager: CBCentralManagerDelegate {
             print("central.state is .unknown default")
         }
     }
+    
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print("Discovered peripheral")
         boardPeripheral = peripheral
-        boardPeripheral?.delegate = self
         centralManager.stopScan()
         centralManager.connect(peripheral)
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("CONNECTED")
+        peripheral.delegate = self
         peripheral.discoverServices([serviceUUID])
-        
+        connected = true
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print("FAILED TO CONNECT")
+        connected = false
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("DISCONNECTED")
+        connected = false
     }
 }
 
@@ -109,10 +126,16 @@ extension BLEManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if characteristic.uuid == characteristicUUID {
             if let value = characteristic.value {
-                let _ = try? JSONDecoder().decode(SensorModel.self, from: value)
+                if let v = try? JSONDecoder().decode(SensorModel.self, from: value) {
+                    for d in delegates.values { d.onUpdate(v) }
+                }
             }
         }
     }
+}
+
+protocol BLEManagerDelegate: NSObject {
+    func onUpdate(_ value: SensorModel)
 }
 
 

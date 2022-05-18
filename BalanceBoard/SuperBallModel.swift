@@ -34,4 +34,9 @@ class SuperBallModel {
         node.position = CGPoint(x: -730, y: 0)
         parent.addChild(node)
     }
+    
+    func updateVelocity(velocity: CGVector) {
+        node.physicsBody?.velocity.dx = velocity.dx
+        node.physicsBody?.velocity.dy = velocity.dy
+    }
 }

@@ -8,7 +8,7 @@
 import SpriteKit
 
 class SuperballScene: SKScene, SKPhysicsContactDelegate {
-    private var movingBall: SuperBallModel?
+    var movingBall: SuperBallModel?
     private var targetBall: SKSpriteNode?
     
     private var boundary = SKSpriteNode()
@@ -108,10 +108,10 @@ class SuperballScene: SKScene, SKPhysicsContactDelegate {
 //        }
 //        movingBall?.bounceVertical()
 ////        movingBall?.reset()
-        print("Contact")
+//        print("Contact")
         if contact.bodyA.node?.name == targetBall?.name || contact.bodyB.node?.name == targetBall?.name {
             reset()
-            print("Target")
+//            print("Target")
         }
     }
     

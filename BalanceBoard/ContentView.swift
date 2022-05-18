@@ -10,7 +10,8 @@ import SpriteKit
 
 struct ContentView: View {
     @StateObject var sceneManager: SceneManager = SceneManager()
-    @State var opacity = 0.0
+    @StateObject var bleManager: BLEManager = BLEManager.instance
+    @State var opacity = 1.0
     var body: some View {
         ZStack {
             SpriteView(scene: sceneManager.superBallScene)
@@ -27,21 +28,21 @@ struct ContentView: View {
             .background(Color.black.opacity(0.5))
             .opacity(opacity)
             
-            VStack {
-                Spacer()
-                Slider(value: $sceneManager.rotationX)
-                Slider(value: $sceneManager.rotationY)
-            }
-            .frame(maxWidth: UIScreen.main.bounds.width / 2)
-            .padding(.bottom, 60)
+//            VStack {
+//                Spacer()
+//                Slider(value: $sceneManager.rotationX)
+//                Slider(value: $sceneManager.rotationY)
+//            }
+//            .frame(maxWidth: UIScreen.main.bounds.width / 2)
+//            .padding(.bottom, 60)
         }
-        .onChange(of: sceneManager.deviceConnected) { isConnected in
-            if isConnected {
-                opacity = 0
-            } else {
-                opacity = 1
-            }
+        .onAppear {
+            bleManager.delegates["sceneManager"] = sceneManager
         }
+        .onDisappear {
+            bleManager.delegates.removeValue(forKey: "sceneManager")
+        }
+        .onChange(of: bleManager.connected) { opacity = $0 ? 0 : 1 }
         .ignoresSafeArea()
     }
 }
