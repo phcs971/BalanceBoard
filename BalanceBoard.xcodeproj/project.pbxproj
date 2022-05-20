@@ -14,6 +14,9 @@
 		5BD10DD42832D42C00907A71 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD10DD32832D42C00907A71 /* SceneManager.swift */; };
 		5BE0C0F428330465006236ED /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5BE0C0F328330465006236ED /* MyScene.sks */; };
 		5BE0C0F628330DE2006236ED /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0C0F528330DE2006236ED /* ModalView.swift */; };
+		EE0A3B4F28381BF3009C115F /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0A3B4E28381BF3009C115F /* GameManager.swift */; };
+		EE0A3B5128381E79009C115F /* ColorTween.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0A3B5028381E79009C115F /* ColorTween.swift */; };
+		EE0A3B5328381E90009C115F /* FirewallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0A3B5228381E90009C115F /* FirewallModel.swift */; };
 		EE6AB435283575B300276C9F /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6AB434283575B300276C9F /* GameView.swift */; };
 		EE6AB437283575F000276C9F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6AB436283575F000276C9F /* GameScene.swift */; };
 		EE6AB4392835793D00276C9F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6AB4382835793D00276C9F /* Utils.swift */; };
@@ -31,6 +34,9 @@
 		5BD10DD32832D42C00907A71 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		5BE0C0F328330465006236ED /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
 		5BE0C0F528330DE2006236ED /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		EE0A3B4E28381BF3009C115F /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		EE0A3B5028381E79009C115F /* ColorTween.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTween.swift; sourceTree = "<group>"; };
+		EE0A3B5228381E90009C115F /* FirewallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirewallModel.swift; sourceTree = "<group>"; };
 		EE6AB434283575B300276C9F /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		EE6AB436283575F000276C9F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		EE6AB4382835793D00276C9F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -53,9 +59,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE0A3B4D28381BD6009C115F /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				EE6AB434283575B300276C9F /* GameView.swift */,
+				EE6AB436283575F000276C9F /* GameScene.swift */,
+				EE0A3B4E28381BF3009C115F /* GameManager.swift */,
+				EE0A3B5228381E90009C115F /* FirewallModel.swift */,
+			);
+			path = GameView;
+			sourceTree = "<group>";
+		};
 		EE866F4B2832CEA90003CA9C = {
 			isa = PBXGroup;
 			children = (
+				EE0A3B5028381E79009C115F /* ColorTween.swift */,
 				EE866F562832CEA90003CA9C /* BalanceBoard */,
 				EE866F552832CEA90003CA9C /* Products */,
 			);
@@ -72,8 +90,8 @@
 		EE866F562832CEA90003CA9C /* BalanceBoard */ = {
 			isa = PBXGroup;
 			children = (
+				EE0A3B4D28381BD6009C115F /* GameView */,
 				EEE7C87A2836CC5B009D0624 /* Info.plist */,
-				EE6AB434283575B300276C9F /* GameView.swift */,
 				5BE0C0F328330465006236ED /* MyScene.sks */,
 				5BE0C0F528330DE2006236ED /* ModalView.swift */,
 				5BD10DD32832D42C00907A71 /* SceneManager.swift */,
@@ -85,7 +103,6 @@
 				5BD10DD12832D20A00907A71 /* SuperBallModel.swift */,
 				5B7FAA492832FC9F00D455EB /* BLEManager.swift */,
 				5B7FAA4A2832FC9F00D455EB /* SensorModel.swift */,
-				EE6AB436283575F000276C9F /* GameScene.swift */,
 				EE6AB4382835793D00276C9F /* Utils.swift */,
 			);
 			path = BalanceBoard;
@@ -171,9 +188,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6AB437283575F000276C9F /* GameScene.swift in Sources */,
+				EE0A3B4F28381BF3009C115F /* GameManager.swift in Sources */,
 				EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */,
 				5B7FAA4C2832FC9F00D455EB /* SensorModel.swift in Sources */,
 				5BE0C0F628330DE2006236ED /* ModalView.swift in Sources */,
+				EE0A3B5328381E90009C115F /* FirewallModel.swift in Sources */,
+				EE0A3B5128381E79009C115F /* ColorTween.swift in Sources */,
 				5B7FAA4B2832FC9F00D455EB /* BLEManager.swift in Sources */,
 				EE6AB435283575B300276C9F /* GameView.swift in Sources */,
 				5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */,
@@ -317,7 +337,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -329,7 +350,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -349,7 +370,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,7 +383,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

@@ -13,7 +13,7 @@ struct BalanceBoardApp: App {
         WindowGroup {
 //            ContentView()
             GameView()
-                .preferredColorScheme(.dark)
+                
         }
     }
 }
