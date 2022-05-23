@@ -97,5 +97,6 @@ class GameManager: ObservableObject {
         status = .ended
         scene.isPaused = true
         scene.view?.isPaused = true
+        view?.endGame()
     }
 }

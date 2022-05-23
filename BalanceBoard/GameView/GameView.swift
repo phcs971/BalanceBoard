@@ -7,8 +7,11 @@
 
 import SwiftUI
 import SpriteKit
+import NavigationStack
 
 struct GameView: View {
+    @EnvironmentObject var nav: NavigationStack
+    
     @StateObject var manager = GameManager()
     @State private var rotation = 0.0
     @State private var progress = 1.0
@@ -24,6 +27,11 @@ struct GameView: View {
             rotation = 4 * .pi
         }
     }
+    
+    func endGame() {
+        nav.push(EndGameView())
+    }
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -86,6 +94,7 @@ struct GameView: View {
         }
         .navigationBarHidden(true)
         .preferredColorScheme(.dark)
+        .environmentObject(manager)
         .onAppear {
             manager.view = self
             manager.startLoader()
