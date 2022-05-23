@@ -24,23 +24,69 @@ struct EndGameView: View {
                 VStack(alignment: .center, spacing: 0) {
                     Spacer()
                     Spacer()
-                    Text("00:00")
-                        .font(.system(size: width / 40, weight: .light))
-                    Image("Congrats")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: width / 3.7)
-                    Spacer().frame(height: height / 50)
-                    
-                    Text("Best")
-                        .font(.system(size: width / 60, weight: .bold))
-                    Text("00:00")
-                        .font(.system(size: width / 58, weight: .light))
+                    Group {
+                        Text(manager.timerString)
+                            .font(.system(size: width / 40, weight: .light))
+                        Text("\(manager.points)")
+                            .font(.system(size: width / 40, weight: .light))
+                        Image("Congrats")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: width / 3.7)
+                        Spacer().frame(height: height / 50)
+                        Text("Best")
+                            .font(.system(size: width / 60, weight: .bold))
+                        Text(GameService.instace.time)
+                            .font(.system(size: width / 58, weight: .light))
+                        Text("\(GameService.instace.highScore)")
+                            .font(.system(size: width / 58, weight: .light))
+                    }
                     Spacer().frame(height: height / 20)
-//                    HStack() {
-//                        
-//                    }
-                    Spacer().frame(height: height / 50)
+                    HStack(alignment: .center, spacing: height / 50) {
+                        Button {
+                            nav.pop(to: .root)
+                            nav.push(GameView())
+                        } label: {
+                            HStack(alignment: .center, spacing: width / 85) {
+                                Image("arrow")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColor(.black)
+                                    .frame(width: width / 25)
+                                Text("RETRY")
+                                    .font(.system(size: width / 40, weight: .medium))
+                                    .foregroundColor(.black)
+                            }
+                        }
+                        .frame(width: width/5, height: width/20)
+                        .background(
+                            RoundedRectangle(cornerRadius: width / 40)
+                                .stroke(.black, lineWidth: 4))
+                        .background(Color("Branco"))
+                        .cornerRadius(.infinity)
+                        Button {
+                            nav.pop(to: .root)
+                        } label: {
+                            HStack(alignment: .center, spacing: width / 85) {
+                                Text("BACK")
+                                    .font(.system(size: width / 40, weight: .medium))
+                                    .foregroundColor(.black)
+                                Image("arrow")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColor(.black)
+                                    .frame(width: width / 25)
+                                    .rotationEffect(.init(degrees: 180))
+                            }
+                        }
+                        .frame(width: width/5, height: width/20)
+                        .background(
+                            RoundedRectangle(cornerRadius: width / 40)
+                                .stroke(.black, lineWidth: 4))
+                        .background(Color("Branco"))
+                        .cornerRadius(.infinity)
+                    }
+                    Spacer().frame(height: height / 50 + width / 20)
                     Spacer()
                 }
             }

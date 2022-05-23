@@ -74,7 +74,7 @@ struct MenuView: View {
                         .background(
                             RoundedRectangle(cornerRadius: 80)
                                 .stroke(.black, lineWidth: 4))
-                        .background(Color.white)
+                        .background(Color("Branco"))
                         .cornerRadius(100)
                         Spacer().frame(height: geometry.size.height / 12)
                     }

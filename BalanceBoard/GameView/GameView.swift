@@ -24,14 +24,13 @@ struct GameView: View {
     func startLoader() {
         withAnimation(.linear(duration: 3)) {
             progress = 0.0
-            rotation = 4 * .pi
+            rotation = -4 * .pi
         }
     }
     
     func endGame() {
-        nav.push(EndGameView())
+        nav.push(EndGameView().environmentObject(manager))
     }
-    
     
     var body: some View {
         GeometryReader { geometry in
@@ -94,11 +93,11 @@ struct GameView: View {
         }
         .navigationBarHidden(true)
         .preferredColorScheme(.dark)
-        .environmentObject(manager)
         .onAppear {
             manager.view = self
             manager.startLoader()
         }
+        .environmentObject(manager)
     }
 }
 

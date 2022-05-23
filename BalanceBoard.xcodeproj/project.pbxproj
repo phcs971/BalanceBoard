@@ -20,6 +20,7 @@
 		EE600001283C0D340051799C /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = EE600000283C0D340051799C /* NavigationStack */; };
 		EE600003283C13EB0051799C /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE600002283C13EB0051799C /* ScoreboardView.swift */; };
 		EE600005283C1F380051799C /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE600004283C1F380051799C /* EndGameView.swift */; };
+		EE600009283C33170051799C /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE600008283C33170051799C /* GameService.swift */; };
 		EE60FFFC283BF8570051799C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE60FFFB283BF8570051799C /* MenuView.swift */; };
 		EE60FFFE283C03EB0051799C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE60FFFD283C03EB0051799C /* CircleView.swift */; };
 		EE6AB435283575B300276C9F /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6AB434283575B300276C9F /* GameView.swift */; };
@@ -44,6 +45,8 @@
 		EE0A3B5228381E90009C115F /* FirewallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirewallModel.swift; sourceTree = "<group>"; };
 		EE600002283C13EB0051799C /* ScoreboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
 		EE600004283C1F380051799C /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
+		EE600008283C33170051799C /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
+		EE60000A283C336D0051799C /* BalanceBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BalanceBoard.entitlements; sourceTree = "<group>"; };
 		EE60FFFB283BF8570051799C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		EE60FFFD283C03EB0051799C /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		EE6AB434283575B300276C9F /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 		EE866F562832CEA90003CA9C /* BalanceBoard */ = {
 			isa = PBXGroup;
 			children = (
+				EE60000A283C336D0051799C /* BalanceBoard.entitlements */,
 				EE60FFFA283BF83A0051799C /* MenuView */,
 				EE0A3B4D28381BD6009C115F /* GameView */,
 				EEE7C87A2836CC5B009D0624 /* Info.plist */,
@@ -126,6 +130,7 @@
 				5B7FAA492832FC9F00D455EB /* BLEManager.swift */,
 				5B7FAA4A2832FC9F00D455EB /* SensorModel.swift */,
 				EE6AB4382835793D00276C9F /* Utils.swift */,
+				EE600008283C33170051799C /* GameService.swift */,
 			);
 			path = BalanceBoard;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				5B7FAA4C2832FC9F00D455EB /* SensorModel.swift in Sources */,
 				EE600003283C13EB0051799C /* ScoreboardView.swift in Sources */,
 				5BE0C0F628330DE2006236ED /* ModalView.swift in Sources */,
+				EE600009283C33170051799C /* GameService.swift in Sources */,
 				EE0A3B5328381E90009C115F /* FirewallModel.swift in Sources */,
 				EE0A3B5128381E79009C115F /* ColorTween.swift in Sources */,
 				5B7FAA4B2832FC9F00D455EB /* BLEManager.swift in Sources */,
@@ -358,6 +364,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BalanceBoard/BalanceBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BalanceBoard/Preview Content\"";
@@ -365,6 +372,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BalanceBoard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GER;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Precisamos da permissão do bluetooth para conectar nos sensores";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -377,8 +385,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pehp.BalanceBoard;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phcs.GER;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -391,6 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BalanceBoard/BalanceBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BalanceBoard/Preview Content\"";
@@ -398,6 +407,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BalanceBoard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GER;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Precisamos da permissão do bluetooth para conectar nos sensores";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -410,8 +420,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pehp.BalanceBoard;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phcs.GER;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

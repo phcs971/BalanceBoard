@@ -32,7 +32,7 @@ extension Collection where Element == CGFloat, Index == Int {
 }
 
 extension CGPoint {
-    func distance(to point: CGPoint) -> CGFloat {
+    func distance(to point: CGPoint = .zero) -> CGFloat {
         sqrt(pow(x-point.x, 2) + pow(y-point.y, 2))
     }
 }

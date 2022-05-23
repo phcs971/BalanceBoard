@@ -93,6 +93,7 @@ class GameManager: ObservableObject {
     
     func endGame() {
         print("GAME OVER")
+        GameService.instace.completeGame(score: points, time: secondsPassed)
         timer?.invalidate()
         status = .ended
         scene.isPaused = true

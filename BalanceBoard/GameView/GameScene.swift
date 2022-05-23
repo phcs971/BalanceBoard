@@ -139,8 +139,7 @@ class GameScene: SKScene {
     
     func checkBall() {
         DispatchQueue.main.async {
-            print(self.ballNode.position.distance(to: .zero))
-            if self.ballNode.position.distance(to: .zero) > 10 {
+            if self.ballNode.position.distance() > 10 {
                 self.manager.addPoint()
             } else {
                 self.manager.endGame()
