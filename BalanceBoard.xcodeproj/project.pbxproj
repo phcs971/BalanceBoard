@@ -130,11 +130,8 @@
 		EE866F562832CEA90003CA9C /* BalanceBoard */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
 				EE60000A283C336D0051799C /* BalanceBoard.entitlements */,
-=======
 				5B242A74283C1EAB003BDCFA /* SetupView */,
->>>>>>> Stashed changes
 				EE60FFFA283BF83A0051799C /* MenuView */,
 				EE0A3B4D28381BD6009C115F /* GameView */,
 				EEE7C87A2836CC5B009D0624 /* Info.plist */,
@@ -252,12 +249,9 @@
 				EE0A3B5128381E79009C115F /* ColorTween.swift in Sources */,
 				5B7FAA4B2832FC9F00D455EB /* BLEManager.swift in Sources */,
 				EE60FFFE283C03EB0051799C /* CircleView.swift in Sources */,
-<<<<<<< Updated upstream
 				EE600005283C1F380051799C /* EndGameView.swift in Sources */,
-=======
 				5B242A7A283C30A8003BDCFA /* ConnectionFeedbackView.swift in Sources */,
 				5B242A76283C1FD7003BDCFA /* ConnectionView.swift in Sources */,
->>>>>>> Stashed changes
 				EE6AB435283575B300276C9F /* GameView.swift in Sources */,
 				5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */,
 				EE60FFFC283BF8570051799C /* MenuView.swift in Sources */,
