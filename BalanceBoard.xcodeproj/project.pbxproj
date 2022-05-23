@@ -17,6 +17,10 @@
 		EE0A3B4F28381BF3009C115F /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0A3B4E28381BF3009C115F /* GameManager.swift */; };
 		EE0A3B5128381E79009C115F /* ColorTween.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0A3B5028381E79009C115F /* ColorTween.swift */; };
 		EE0A3B5328381E90009C115F /* FirewallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0A3B5228381E90009C115F /* FirewallModel.swift */; };
+		EE600001283C0D340051799C /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = EE600000283C0D340051799C /* NavigationStack */; };
+		EE600003283C13EB0051799C /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE600002283C13EB0051799C /* ScoreboardView.swift */; };
+		EE60FFFC283BF8570051799C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE60FFFB283BF8570051799C /* MenuView.swift */; };
+		EE60FFFE283C03EB0051799C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE60FFFD283C03EB0051799C /* CircleView.swift */; };
 		EE6AB435283575B300276C9F /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6AB434283575B300276C9F /* GameView.swift */; };
 		EE6AB437283575F000276C9F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6AB436283575F000276C9F /* GameScene.swift */; };
 		EE6AB4392835793D00276C9F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6AB4382835793D00276C9F /* Utils.swift */; };
@@ -37,6 +41,9 @@
 		EE0A3B4E28381BF3009C115F /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		EE0A3B5028381E79009C115F /* ColorTween.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTween.swift; sourceTree = "<group>"; };
 		EE0A3B5228381E90009C115F /* FirewallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirewallModel.swift; sourceTree = "<group>"; };
+		EE600002283C13EB0051799C /* ScoreboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
+		EE60FFFB283BF8570051799C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		EE60FFFD283C03EB0051799C /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		EE6AB434283575B300276C9F /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		EE6AB436283575F000276C9F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		EE6AB4382835793D00276C9F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE600001283C0D340051799C /* NavigationStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,8 +74,18 @@
 				EE6AB436283575F000276C9F /* GameScene.swift */,
 				EE0A3B4E28381BF3009C115F /* GameManager.swift */,
 				EE0A3B5228381E90009C115F /* FirewallModel.swift */,
+				EE600002283C13EB0051799C /* ScoreboardView.swift */,
 			);
 			path = GameView;
+			sourceTree = "<group>";
+		};
+		EE60FFFA283BF83A0051799C /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				EE60FFFB283BF8570051799C /* MenuView.swift */,
+				EE60FFFD283C03EB0051799C /* CircleView.swift */,
+			);
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 		EE866F4B2832CEA90003CA9C = {
@@ -90,6 +108,7 @@
 		EE866F562832CEA90003CA9C /* BalanceBoard */ = {
 			isa = PBXGroup;
 			children = (
+				EE60FFFA283BF83A0051799C /* MenuView */,
 				EE0A3B4D28381BD6009C115F /* GameView */,
 				EEE7C87A2836CC5B009D0624 /* Info.plist */,
 				5BE0C0F328330465006236ED /* MyScene.sks */,
@@ -132,6 +151,9 @@
 			dependencies = (
 			);
 			name = BalanceBoard;
+			packageProductDependencies = (
+				EE600000283C0D340051799C /* NavigationStack */,
+			);
 			productName = BalanceBoard;
 			productReference = EE866F542832CEA90003CA9C /* BalanceBoard.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +182,9 @@
 				Base,
 			);
 			mainGroup = EE866F4B2832CEA90003CA9C;
+			packageReferences = (
+				EE60FFFF283C0D340051799C /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
+			);
 			productRefGroup = EE866F552832CEA90003CA9C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -191,12 +216,15 @@
 				EE0A3B4F28381BF3009C115F /* GameManager.swift in Sources */,
 				EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */,
 				5B7FAA4C2832FC9F00D455EB /* SensorModel.swift in Sources */,
+				EE600003283C13EB0051799C /* ScoreboardView.swift in Sources */,
 				5BE0C0F628330DE2006236ED /* ModalView.swift in Sources */,
 				EE0A3B5328381E90009C115F /* FirewallModel.swift in Sources */,
 				EE0A3B5128381E79009C115F /* ColorTween.swift in Sources */,
 				5B7FAA4B2832FC9F00D455EB /* BLEManager.swift in Sources */,
+				EE60FFFE283C03EB0051799C /* CircleView.swift in Sources */,
 				EE6AB435283575B300276C9F /* GameView.swift in Sources */,
 				5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */,
+				EE60FFFC283BF8570051799C /* MenuView.swift in Sources */,
 				EE6AB4392835793D00276C9F /* Utils.swift in Sources */,
 				5BD10DD42832D42C00907A71 /* SceneManager.swift in Sources */,
 				5BD10DD22832D20A00907A71 /* SuperBallModel.swift in Sources */,
@@ -409,6 +437,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE60FFFF283C0D340051799C /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE600000283C0D340051799C /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE60FFFF283C0D340051799C /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EE866F4C2832CEA90003CA9C /* Project object */;
 }

@@ -17,11 +17,20 @@ enum GameStatus {
 class GameManager: ObservableObject {
     let scene = GameScene()
     
+    var view: GameView?
+    
     var timer: Timer?
     
     init() {
         self.scene.manager = self
-        startGame()
+        scene.isPaused = true
+        scene.view?.isPaused = true
+    }
+    
+    func startLoader() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onLoadTimer), userInfo: nil, repeats: true)
+        view?.startLoader()
+        
     }
     
     func startGame() {
@@ -29,12 +38,43 @@ class GameManager: ObservableObject {
         secondsPassed = 0
         points = 0
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimer), userInfo: nil, repeats: true)
+        scene.addWall()
     }
     
-    @Published var status = GameStatus.notStarted
+    @Published var status = GameStatus.notStarted {
+        didSet {
+            switch status {
+            case .notStarted:
+                opacity = 0.0
+                loadProgress = 1.0
+                view?.resetLoader()
+            case .started:
+                scene.isPaused = false
+                scene.view?.isPaused = false
+                withAnimation(.easeInOut(duration: 0.5)) { opacity = 1.0 }
+            case .paused:
+                break
+            case .ended:
+                break
+            }
+        }
+    }
+    
+    @Published var opacity = 0.0
+    @Published var loadProgress = 1.0
+    @Published var loadRotation = 0.0
+    @Published var loadValue = 3
     @Published var points = 0
     var secondsPassed = 0 { didSet { updateTimerString() } }
     @Published var timerString = "00:00"
+    
+    @objc func onLoadTimer() {
+        loadValue -= 1
+        if (loadValue == 0) {
+            timer?.invalidate()
+            startGame()
+        }
+    }
     
     @objc func onTimer() {
         if status == .started {

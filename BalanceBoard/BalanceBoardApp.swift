@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 @main
 struct BalanceBoardApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            GameView()
+//            GameView()
+            NavigationStackView(transitionType: .custom(.opacity), easing: .easeInOut(duration: 1)) {
+                MenuView()
+            }
                 
         }
     }

@@ -25,26 +25,27 @@ class GameScene: SKScene {
         
         addBall(position: CGPoint(x: 200, y: 200))
         
-        addWall()
+        isPaused = true
+        self.view?.isPaused = true
     }
     
     func addBall(position: CGPoint = .zero) {
         let radius = 0.025 * screenDiagonal
         let size = CGSize(width: 2 * radius, height: 2 * radius)
-        ballNode = SKSpriteNode()
+        ballNode = SKSpriteNode(imageNamed: "GameRobot")
         ballNode.zPosition = 1
         ballNode.position = position
         ballNode.size = size
-        let ball = SKShapeNode(circleOfRadius: radius)
-        ball.fillColor = .init(named: "Azul")!
-        ball.strokeColor = .clear
         
-        let body = SKPhysicsBody(circleOfRadius: radius)
+        let body = SKPhysicsBody(texture: SKTexture(imageNamed: "GameRobotAlpha"), alphaThreshold: 0.5, size: size)
         body.affectedByGravity = false
+        body.allowsRotation = false
+        body.angularDamping = .infinity
+        body.angularVelocity = 0
         
         ballNode.physicsBody = body
         addChild(ballNode)
-        ballNode.addChild(ball)
+//        ballNode.addChild(ball)
     }
     
     func addWall() {
@@ -138,7 +139,8 @@ class GameScene: SKScene {
     
     func checkBall() {
         DispatchQueue.main.async {
-            if self.ballNode.position.distance(to: .zero) > 5 {
+            print(self.ballNode.position.distance(to: .zero))
+            if self.ballNode.position.distance(to: .zero) > 10 {
                 self.manager.addPoint()
             } else {
                 self.manager.endGame()
