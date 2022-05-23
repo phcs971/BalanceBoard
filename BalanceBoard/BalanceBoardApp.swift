@@ -15,8 +15,7 @@ struct BalanceBoardApp: App {
 //            ContentView()
 //            GameView()
             NavigationStackView(transitionType: .custom(.opacity), easing: .easeInOut(duration: 1)) {
-                ConnectionView()
-//                MenuView()
+                MenuView()
             }
                 
         }
