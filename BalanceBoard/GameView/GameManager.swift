@@ -23,6 +23,9 @@ class GameManager: NSObject ,ObservableObject {
     
     var lastValues = [SensorModel]()
     @Published var currentValue: SensorModel?
+    @Published var currentInclination = CGVector(dx: 0, dy: 0)
+    private var maximumAngleX: CGFloat = 0
+    private var maximumAngleY: CGFloat = 0
     
     var stationaryStateAcc = VectorModel(x: -0.067, y: 0.121, z: 1.017)
     let multi = 10.0
@@ -59,6 +62,7 @@ class GameManager: NSObject ,ObservableObject {
             case .started:
                 scene.isPaused = false
                 scene.view?.isPaused = false
+                scene.resetPosition()
                 withAnimation(.easeInOut(duration: 0.5)) { opacity = 1.0 }
             case .paused:
                 break
@@ -112,6 +116,15 @@ class GameManager: NSObject ,ObservableObject {
 
 extension GameManager: BLEManagerDelegate {
     func onUpdate(_ value: SensorModel) {
+        // Inclination update
+        if abs(value.acc.x) > maximumAngleX {
+            maximumAngleX = abs(value.acc.x)
+        }
+        if abs(value.acc.y) > maximumAngleY {
+            maximumAngleY = abs(value.acc.y)
+        }
+        currentInclination = CGVector(dx: value.acc.x/maximumAngleX, dy: -value.acc.y/maximumAngleY)
+        
         lastValues.append(value)
         lastValues = lastValues.suffix(2)
         currentValue = lastValues.average
@@ -129,14 +142,14 @@ extension GameManager: BLEManagerDelegate {
 //                dx: -v.x * multi * 100,
 //                dy: -v.y * multi * 100
 //            ))
-//            scene.physicsWorld.gravity = CGVector(
-//                dx: abs(gravity.x) > min ? -gravity.x * multi : 0,
-//                dy: abs(gravity.y) > min ? -gravity.y * multi : 0
-//            )
             scene.physicsWorld.gravity = CGVector(
-                dx: value.acc.x * multi,
-                dy: value.acc.y * multi 
+                dx: abs(gravity.x) > min ? -gravity.x * multi : 0,
+                dy: abs(gravity.y) > min ? -gravity.y * multi : 0
             )
+//            scene.physicsWorld.gravity = CGVector(
+//                dx: value.acc.x,
+//                dy: value.acc.y
+//            )
         }
     }
 }

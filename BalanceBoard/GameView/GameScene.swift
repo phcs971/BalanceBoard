@@ -50,6 +50,10 @@ class GameScene: SKScene {
 //        ballNode.addChild(ball)
     }
     
+    func resetPosition() {
+        ballNode.position = .zero
+    }
+    
     func addWall() {
         DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
             self.interval /= 1.01

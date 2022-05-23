@@ -11,7 +11,7 @@ import NavigationStack
 
 struct GameView: View {
     @EnvironmentObject var nav: NavigationStack
-    
+    @ObservedObject var bleManager = BLEManager.instance
     @StateObject var manager = GameManager()
     @State private var rotation = 0.0
     @State private var progress = 1.0
@@ -63,6 +63,7 @@ struct GameView: View {
                                 Circle()
                                     .foregroundColor(.black)
                                     .frame(width: width / 50, height: width / 50, alignment: .center)
+                                    .offset(x: (width/20-width/100) * manager.currentInclination.dx, y: (width/20-width/100) * manager.currentInclination.dy)
                             }
                     }
                     Spacer()
@@ -96,7 +97,7 @@ struct GameView: View {
         .onAppear {
             manager.view = self
             manager.startLoader()
-            BLEManager.instance.delegates["gameManager"] = manager
+            bleManager.delegates["gameManager"] = manager
         }
         .environmentObject(manager)
     }

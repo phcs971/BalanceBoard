@@ -66,6 +66,7 @@ struct EndGameView: View {
                         .cornerRadius(.infinity)
                         Button {
                             nav.pop(to: .root)
+                            nav.push(MenuView())
                         } label: {
                             HStack(alignment: .center, spacing: width / 85) {
                                 Text("BACK")
