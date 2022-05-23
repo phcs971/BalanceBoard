@@ -18,6 +18,7 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .clear
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         scene!.size = view.layer.frame.size
         scene!.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
@@ -38,10 +39,11 @@ class GameScene: SKScene {
         ballNode.size = size
         
         let body = SKPhysicsBody(texture: SKTexture(imageNamed: "GameRobotAlpha"), alphaThreshold: 0.5, size: size)
-        body.affectedByGravity = false
+        body.affectedByGravity = true
         body.allowsRotation = false
         body.angularDamping = .infinity
         body.angularVelocity = 0
+        
         
         ballNode.physicsBody = body
         addChild(ballNode)

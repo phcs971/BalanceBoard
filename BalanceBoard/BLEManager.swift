@@ -9,6 +9,13 @@ import Foundation
 import CoreBluetooth
 import SwiftUI
 
+enum ConnectionState {
+    case waiting
+    case scanning
+    case connected
+    case failed
+}
+
 class BLEManager: NSObject, ObservableObject {
     var serviceUUID: CBUUID = .init(string: "DA1A")
     var characteristicUUID: CBUUID = .init(string: "A001")
@@ -24,15 +31,20 @@ class BLEManager: NSObject, ObservableObject {
     @Published var notifying = false
     @Published var connected = false
     
+    //Connection View
+    @Published var connectionState: ConnectionState = .waiting
+    
     static let instance = BLEManager()
     
     func start() {
         centralManager = CBCentralManager(delegate: self, queue: nil)
+//        connectionState = .scanning
     }
     
     
     func startScanning() {
         print("Start scanning")
+        connectionState = .scanning
         let peripherals = centralManager.retrieveConnectedPeripherals(withServices: [serviceUUID])
         if peripherals.isEmpty {
             centralManager.scanForPeripherals(withServices: [serviceUUID])
@@ -81,23 +93,26 @@ extension BLEManager: CBCentralManagerDelegate {
         peripheral.delegate = self
         peripheral.discoverServices([serviceUUID])
         connected = true
+        connectionState = .connected
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print("FAILED TO CONNECT")
         connected = false
+        connectionState = .failed
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("DISCONNECTED")
         connected = false
+        connectionState = .failed
     }
 }
 
 extension BLEManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
-        
+        print("Service found")
         for service in services {
             if service.uuid == serviceUUID {
                 peripheral.discoverCharacteristics([characteristicUUID], for: service)
@@ -107,7 +122,7 @@ extension BLEManager: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard let characteristics = service.characteristics else { return }
-        
+        print("Characteristics found")
         for characteristic in characteristics {
             if characteristic.uuid == characteristicUUID {
                 sensorCharacteristic = characteristic
@@ -127,7 +142,12 @@ extension BLEManager: CBPeripheralDelegate {
         if characteristic.uuid == characteristicUUID {
             if let value = characteristic.value {
                 if let v = try? JSONDecoder().decode(SensorModel.self, from: value) {
-                    for d in delegates.values { d.onUpdate(v) }
+                    print("decoded")
+                    print(delegates)
+                    for d in delegates.values {
+                        d.onUpdate(v)
+                        print("updated")
+                    }
                 }
             }
         }

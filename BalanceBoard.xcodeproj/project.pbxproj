@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B242A76283C1FD7003BDCFA /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242A75283C1FD7003BDCFA /* ConnectionView.swift */; };
+		5B242A7A283C30A8003BDCFA /* ConnectionFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242A79283C30A8003BDCFA /* ConnectionFeedbackView.swift */; };
+		5B242A7C283C38B0003BDCFA /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242A7B283C38B0003BDCFA /* CalibrationView.swift */; };
 		5B7FAA4B2832FC9F00D455EB /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FAA492832FC9F00D455EB /* BLEManager.swift */; };
 		5B7FAA4C2832FC9F00D455EB /* SensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FAA4A2832FC9F00D455EB /* SensorModel.swift */; };
 		5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD10DCF2832D16600907A71 /* SuperBallScene.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B242A75283C1FD7003BDCFA /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		5B242A79283C30A8003BDCFA /* ConnectionFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFeedbackView.swift; sourceTree = "<group>"; };
+		5B242A7B283C38B0003BDCFA /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
 		5B7FAA492832FC9F00D455EB /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		5B7FAA4A2832FC9F00D455EB /* SensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorModel.swift; sourceTree = "<group>"; };
 		5BD10DCF2832D16600907A71 /* SuperBallScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperBallScene.swift; sourceTree = "<group>"; };
@@ -72,6 +78,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B242A74283C1EAB003BDCFA /* SetupView */ = {
+			isa = PBXGroup;
+			children = (
+				5B242A75283C1FD7003BDCFA /* ConnectionView.swift */,
+				5B242A79283C30A8003BDCFA /* ConnectionFeedbackView.swift */,
+				5B242A7B283C38B0003BDCFA /* CalibrationView.swift */,
+			);
+			path = SetupView;
+			sourceTree = "<group>";
+		};
 		EE0A3B4D28381BD6009C115F /* GameView */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +130,11 @@
 		EE866F562832CEA90003CA9C /* BalanceBoard */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				EE60000A283C336D0051799C /* BalanceBoard.entitlements */,
+=======
+				5B242A74283C1EAB003BDCFA /* SetupView */,
+>>>>>>> Stashed changes
 				EE60FFFA283BF83A0051799C /* MenuView */,
 				EE0A3B4D28381BD6009C115F /* GameView */,
 				EEE7C87A2836CC5B009D0624 /* Info.plist */,
@@ -223,6 +243,7 @@
 				EE6AB437283575F000276C9F /* GameScene.swift in Sources */,
 				EE0A3B4F28381BF3009C115F /* GameManager.swift in Sources */,
 				EE866F5A2832CEA90003CA9C /* ContentView.swift in Sources */,
+				5B242A7C283C38B0003BDCFA /* CalibrationView.swift in Sources */,
 				5B7FAA4C2832FC9F00D455EB /* SensorModel.swift in Sources */,
 				EE600003283C13EB0051799C /* ScoreboardView.swift in Sources */,
 				5BE0C0F628330DE2006236ED /* ModalView.swift in Sources */,
@@ -231,7 +252,12 @@
 				EE0A3B5128381E79009C115F /* ColorTween.swift in Sources */,
 				5B7FAA4B2832FC9F00D455EB /* BLEManager.swift in Sources */,
 				EE60FFFE283C03EB0051799C /* CircleView.swift in Sources */,
+<<<<<<< Updated upstream
 				EE600005283C1F380051799C /* EndGameView.swift in Sources */,
+=======
+				5B242A7A283C30A8003BDCFA /* ConnectionFeedbackView.swift in Sources */,
+				5B242A76283C1FD7003BDCFA /* ConnectionView.swift in Sources */,
+>>>>>>> Stashed changes
 				EE6AB435283575B300276C9F /* GameView.swift in Sources */,
 				5BD10DD02832D16600907A71 /* SuperBallScene.swift in Sources */,
 				EE60FFFC283BF8570051799C /* MenuView.swift in Sources */,
@@ -369,6 +395,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BalanceBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = LP3UHZ556W;
+				DEVELOPMENT_TEAM = P9DY7C7A5F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BalanceBoard/Info.plist;
@@ -404,6 +431,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BalanceBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = LP3UHZ556W;
+				DEVELOPMENT_TEAM = P9DY7C7A5F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BalanceBoard/Info.plist;
