@@ -96,6 +96,7 @@ struct GameView: View {
         .onAppear {
             manager.view = self
             manager.startLoader()
+            BLEManager.instance.delegates["gameManager"] = manager
         }
         .environmentObject(manager)
     }

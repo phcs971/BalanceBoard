@@ -14,14 +14,22 @@ enum GameStatus {
     case ended
 }
 
-class GameManager: ObservableObject {
+class GameManager: NSObject ,ObservableObject {
     let scene = GameScene()
     
     var view: GameView?
     
     var timer: Timer?
     
-    init() {
+    var lastValues = [SensorModel]()
+    @Published var currentValue: SensorModel?
+    
+    var stationaryStateAcc = VectorModel(x: -0.067, y: 0.121, z: 1.017)
+    let multi = 10.0
+    let min = 0.1
+    
+    override init() {
+        super.init()
         self.scene.manager = self
         scene.isPaused = true
         scene.view?.isPaused = true
@@ -99,5 +107,36 @@ class GameManager: ObservableObject {
         scene.isPaused = true
         scene.view?.isPaused = true
         view?.endGame()
+    }
+}
+
+extension GameManager: BLEManagerDelegate {
+    func onUpdate(_ value: SensorModel) {
+        lastValues.append(value)
+        lastValues = lastValues.suffix(2)
+        currentValue = lastValues.average
+        print(currentValue?.acc.x ?? "SEM X", currentValue?.acc.y ?? "SEM Y", currentValue?.acc.z ?? "SEM Z")
+        let va = currentValue!.acc - stationaryStateAcc
+        print(va.x, va.y, va.z)
+        currentValue = value
+        if let v = currentValue?.acc {
+            let gravity = (v - stationaryStateAcc)
+            
+            print(gravity.x, gravity.y, gravity.z)
+            print("")
+            //            print("")
+//            superBallScene.movingBall?.updateVelocity(velocity: CGVector(
+//                dx: -v.x * multi * 100,
+//                dy: -v.y * multi * 100
+//            ))
+//            scene.physicsWorld.gravity = CGVector(
+//                dx: abs(gravity.x) > min ? -gravity.x * multi : 0,
+//                dy: abs(gravity.y) > min ? -gravity.y * multi : 0
+//            )
+            scene.physicsWorld.gravity = CGVector(
+                dx: value.acc.x * multi,
+                dy: value.acc.y * multi 
+            )
+        }
     }
 }
