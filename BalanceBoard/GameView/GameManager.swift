@@ -123,7 +123,9 @@ extension GameManager: BLEManagerDelegate {
         if abs(value.acc.y) > maximumAngleY {
             maximumAngleY = abs(value.acc.y)
         }
-        currentInclination = CGVector(dx: value.acc.x/maximumAngleX, dy: -value.acc.y/maximumAngleY)
+        withAnimation(.easeInOut(duration: 0.2)) {
+            currentInclination = CGVector(dx: -value.acc.x/maximumAngleX, dy: value.acc.y/maximumAngleY)
+        }
         
         lastValues.append(value)
         lastValues = lastValues.suffix(2)

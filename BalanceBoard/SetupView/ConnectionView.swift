@@ -34,9 +34,10 @@ struct ConnectionView: View {
                    .onAppear {
                        rotation.toggle()
                    }
+                   .opacity(bleManager.connectionState == .scanning ? 1 : 0)
             }
             .padding()
-            .opacity(bleManager.connectionState == .scanning ? 1 : 0)
+            
             
             Button(action: {
                 bleManager.start()
