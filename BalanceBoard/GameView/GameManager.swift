@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreMotion
 
 enum GameStatus {
     case notStarted
@@ -21,9 +22,12 @@ class GameManager: NSObject ,ObservableObject {
     
     var timer: Timer?
     
+    private let motion = CMMotionManager()
+    
     var lastValues = [SensorModel]()
     @Published var currentValue: SensorModel?
     @Published var currentInclination = CGVector(dx: 0, dy: 0)
+    @Published var connected = false
     private var maximumAngleX: CGFloat = 0
     private var maximumAngleY: CGFloat = 0
     
@@ -36,6 +40,21 @@ class GameManager: NSObject ,ObservableObject {
         self.scene.manager = self
         scene.isPaused = true
         scene.view?.isPaused = true
+        
+        connected = BLEManager.instance.connected
+        if connected {
+            BLEManager.instance.delegates["gameManager"] = self
+        } else {
+            motion.accelerometerUpdateInterval = 1/30
+            motion.startAccelerometerUpdates(to: .main) { data, error in
+                if let data = data?.acceleration {
+                    self.scene.physicsWorld.gravity = CGVector(
+                        dx: -data.y * 2.5,
+                        dy: data.x * 2.5
+                    )
+                }
+            }
+        }
     }
     
     func startLoader() {

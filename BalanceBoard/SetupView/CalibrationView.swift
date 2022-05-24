@@ -14,6 +14,8 @@ struct CalibrationView: View {
     @StateObject private var calibrationManager = CalibrationManager()
     var body: some View {
         getCalibrationPage()
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            .background(Color("Branco"))
             .onAppear {
                 bleManager.delegates["calibrationManager"] = calibrationManager
             }
@@ -25,11 +27,13 @@ struct CalibrationView: View {
             VStack(spacing: 32) {
                 Text("Find your mojo!")
                     .font(.system(size: 48, weight: .bold, design: .default))
+                    .foregroundColor(.black)
                 Text("Place the balance board on the floor to start the calibration")
                     .font(.custom("Helvetica", size: 32))
                     .fontWeight(.light)
                     .frame(maxWidth: 530)
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.black)
                 Image("waitingBoard")
                     .padding(.top,120)
                 HStack {
@@ -58,7 +62,9 @@ struct CalibrationView: View {
             VStack(spacing: 12) {
                 Text("Great! Time to move on!")
                     .font(.system(size: 48, weight: .bold, design: .default))
+                    .foregroundColor(.black)
                 Text("Get on the board to start calibrating angles and your learning")
+                    .foregroundColor(.black)
                     .font(.custom("Helvetica", size: 32))
                     .fontWeight(.light)
                     .frame(maxWidth: 530)
@@ -77,8 +83,10 @@ struct CalibrationView: View {
             VStack(spacing: 24) {
                 Text("Let's balance!")
                     .font(.system(size: 48, weight: .bold, design: .default))
+                    .foregroundColor(.black)
                 Text("Please move to the CENTER of the balance board")
                     .font(.custom("Helvetica", size: 32))
+                    .foregroundColor(.black)
                     .fontWeight(.light)
                     .multilineTextAlignment(.center)
                 ZStack(alignment: .center) {
@@ -103,10 +111,12 @@ struct CalibrationView: View {
                 VStack(alignment: .trailing) {
                     Text("Move to the left!")
                         .font(.system(size: 48, weight: .bold, design: .default))
+                        .foregroundColor(.black)
                     Text("Please move to the left of the balance board")
                         .font(.custom("Helvetica", size: 32))
                         .fontWeight(.light)
                         .multilineTextAlignment(.trailing)
+                        .foregroundColor(.black)
                         .frame(maxWidth: 305)
                 }
                 ZStack(alignment: .center) {
@@ -140,11 +150,13 @@ struct CalibrationView: View {
                 VStack(alignment: .leading) {
                     Text("Move to the right!")
                         .font(.system(size: 48, weight: .bold, design: .default))
+                        .foregroundColor(.black)
                     Text("Please move to the right of the balance board")
                         .font(.custom("Helvetica", size: 32))
                         .fontWeight(.light)
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth: 305)
+                        .foregroundColor(.black)
                 }
             }
             .onAppear {
@@ -167,10 +179,12 @@ struct CalibrationView: View {
                 }
                 Text("Move to the back!")
                     .font(.system(size: 48, weight: .bold, design: .default))
+                    .foregroundColor(.black)
                 Text("Please move to the top of the balance board")
                     .font(.custom("Helvetica", size: 32))
                     .fontWeight(.light)
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.black)
             }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -183,10 +197,12 @@ struct CalibrationView: View {
             VStack(spacing: 24) {
                 Text("Move to the front!")
                     .font(.system(size: 48, weight: .bold, design: .default))
+                    .foregroundColor(.black)
                 Text("Please move to the front of the balance board")
                     .font(.custom("Helvetica", size: 32))
                     .fontWeight(.light)
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.black)
                 ZStack(alignment: .center) {
                     Circle()
                         .fill(Color("Azul"))
@@ -217,8 +233,10 @@ struct CalibrationView: View {
                         .foregroundColor(Color("Laranja"))
                     Text("You can use the touchscreen and the balance board to control your actions!")
                         .font(.system(size: 32, weight: .light, design: .rounded))
+                        .foregroundColor(.black)
                     Text("Let's mo-mo-move!")
                         .font(.system(size: 32, weight: .bold, design: .rounded))
+                        .foregroundColor(.black)
                     Button(action: {
                         nav.push(MenuView())
                     }) {

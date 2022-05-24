@@ -18,15 +18,22 @@ struct ConnectionView: View {
         VStack {
             Text("Searching for nearby boards")
                 .font(.system(size: 48, weight: .bold))
+                .foregroundColor(.black)
             Text("Please turn on and move the board close to your device")
                 .font(.system(size: 32, weight: .light))
+                .foregroundColor(.black)
             ZStack(alignment: .center) {
                 Circle()
                     .stroke(.orange, lineWidth: 1)
                     .frame(width: circleRadius, height: circleRadius)
                 Circle()
                     .fill(
-                        AngularGradient(colors: [.orange.opacity(0.5),.clear,.clear,.clear,.clear,.clear,.clear,.clear,.clear], center: .center,startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 360))
+                        AngularGradient(
+                            colors: [.orange.opacity(0.5),.orange.opacity(0),.orange.opacity(0),.orange.opacity(0),.orange.opacity(0),.orange.opacity(0),.orange.opacity(0),.orange.opacity(0),.orange.opacity(0)],
+                            center: .center,
+                            startAngle: Angle(degrees: 0),
+                            endAngle: Angle(degrees: 360)
+                        )
                     )
                    .frame(width: circleRadius, height: circleRadius)
                    .rotationEffect(Angle(degrees: rotation ? -360 : 0))
@@ -39,19 +46,40 @@ struct ConnectionView: View {
             .padding()
             
             
-            Button(action: {
-                bleManager.start()
-            }) {
-                Text("Scan for boards")
-                    .font(.custom("Helvetica", size: 32))
-                    .fontWeight(.light)
-                    .foregroundColor(.black)
-                    .padding(.vertical,28)
-                    .padding(.horizontal,64)
-                    .background(
-                        RoundedRectangle(cornerRadius: 50)
-                            .stroke(.black, lineWidth: 1)
-                    )
+            HStack {
+                Spacer().frame(width: 200)
+                Spacer()
+                Button(action: {
+                    bleManager.start()
+                }) {
+                    Text("Scan for boards")
+                        .font(.custom("Helvetica", size: 32))
+                        .fontWeight(.light)
+                        .foregroundColor(.black)
+                        .padding(.vertical,28)
+                        .padding(.horizontal,64)
+                        .background(
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke(.black, lineWidth: 1)
+                        )
+                }
+                Spacer()
+                Button {
+                    nav.push(MenuView())
+                } label: {
+                    Text("CONTINUE\nWITHOUT\nCONNECTING")
+                        .font(.custom("Helvetica", size: 16))
+                        .fontWeight(.light)
+                        .foregroundColor(.black)
+                        .padding(.vertical,4)
+                        .padding(.horizontal,32)
+                }
+                .background(
+                    RoundedRectangle(cornerRadius: .infinity)
+                        .stroke(.black, lineWidth: 1)
+                )
+                .frame(width: 200)
+
             }
             .padding()
         }
@@ -60,6 +88,8 @@ struct ConnectionView: View {
                 nav.push(ConnectionFeedbackView(connected: newValue == .connected))
             }
         }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .background(Color("Branco"))
     }
 }
 

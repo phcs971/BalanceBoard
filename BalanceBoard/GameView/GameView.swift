@@ -16,7 +16,7 @@ struct GameView: View {
     @State private var rotation = 0.0
     @State private var progress = 1.0
     
-    func resetLoader() {        
+    func resetLoader() {
         progress = 1.0
         rotation = 0.0
     }
@@ -56,15 +56,18 @@ struct GameView: View {
                         )
                         .opacity(manager.opacity)
                         Spacer()
-                        Circle()
-                            .foregroundColor(.white)
-                            .frame(width: width / 10, height: width / 10, alignment: .center)
-                            .overlay {
-                                Circle()
-                                    .foregroundColor(.black)
-                                    .frame(width: width / 50, height: width / 50, alignment: .center)
-                                    .offset(x: (width/20-width/100) * manager.currentInclination.dx, y: (width/20-width/100) * manager.currentInclination.dy)
-                            }
+                        if (manager.connected) {
+                            
+                            Circle()
+                                .foregroundColor(.white)
+                                .frame(width: width / 10, height: width / 10, alignment: .center)
+                                .overlay {
+                                    Circle()
+                                        .foregroundColor(.black)
+                                        .frame(width: width / 50, height: width / 50, alignment: .center)
+                                        .offset(x: (width/20-width/100) * manager.currentInclination.dx, y: (width/20-width/100) * manager.currentInclination.dy)
+                                }
+                        }
                     }
                     Spacer()
                 }
@@ -97,7 +100,7 @@ struct GameView: View {
         .onAppear {
             manager.view = self
             manager.startLoader()
-            bleManager.delegates["gameManager"] = manager
+            
         }
         .environmentObject(manager)
     }

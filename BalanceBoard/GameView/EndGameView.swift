@@ -27,8 +27,10 @@ struct EndGameView: View {
                     Group {
                         Text(manager.timerString)
                             .font(.system(size: width / 40, weight: .light))
+                            .foregroundColor(.black)
                         Text("\(manager.points)")
                             .font(.system(size: width / 40, weight: .light))
+                            .foregroundColor(.black)
                         Image("Congrats")
                             .resizable()
                             .scaledToFit()
@@ -36,10 +38,13 @@ struct EndGameView: View {
                         Spacer().frame(height: height / 50)
                         Text("Best")
                             .font(.system(size: width / 60, weight: .bold))
+                            .foregroundColor(.black)
                         Text(GameService.instace.time)
                             .font(.system(size: width / 58, weight: .light))
+                            .foregroundColor(.black)
                         Text("\(GameService.instace.highScore)")
                             .font(.system(size: width / 58, weight: .light))
+                            .foregroundColor(.black)
                     }
                     Spacer().frame(height: height / 20)
                     HStack(alignment: .center, spacing: height / 50) {

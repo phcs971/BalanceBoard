@@ -10,7 +10,9 @@ import NavigationStack
 
 struct ConnectionFeedbackView: View {
     @EnvironmentObject private var nav: NavigationStack
+    
     var connected: Bool
+    
     var body: some View {
         HStack(alignment: .center, spacing: 64) {
             Image(connected ? "connectedImage" : "notConnectedImage")
@@ -23,9 +25,9 @@ struct ConnectionFeedbackView: View {
                     .fontWeight(.light)
                     .lineSpacing(12)
                     .frame(maxWidth: 420)
+                    .foregroundColor(.black)
                 Button(action: {
                     if connected {
-//                        nav.pop()
                         nav.push(CalibrationView())
                     } else {
                         nav.pop()
@@ -57,6 +59,9 @@ struct ConnectionFeedbackView: View {
                 .padding(.vertical)
             }
         }
+        
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .background(Color("Branco"))
     }
 }
 

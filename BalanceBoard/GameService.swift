@@ -16,12 +16,12 @@ class GameService {
     
     var highScore: Int {
         get { Int(store.longLong(forKey: "GER_HighScore")) }
-        set { store.set(newValue, forKey: "GER_HighScore")}
+        set { store.set(newValue, forKey: "GER_HighScore") }
     }
     
     var highTime: Int {
         get { Int(store.longLong(forKey: "GER_HighTime")) }
-        set { store.set(newValue, forKey: "GER_HighTime")}
+        set { store.set(newValue, forKey: "GER_HighTime") }
     }
     
     var time: String {
